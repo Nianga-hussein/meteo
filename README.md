@@ -1,116 +1,19 @@
-# 🌦️ Weather Aggregator
 
-**Weather Aggregator** est une application complète permettant d'agréger et d'afficher des données météo provenant de plusieurs sources (OpenWeather et WeatherGraph) en utilisant **Node.js** pour le backend et **React** (avec **Vite**) pour le frontend.
+# 🌦️ Agrégateur et Normalisateur d’API Météo
 
----
+## 📚 Catégorie
+- Intégration API
+- Gestion des erreurs
+- Normalisation des données
 
-## 📁 Structure du projet
+## 📄 Description
 
-```
-/weather-aggregator
-├── backend
-│   ├── controllers
-│   │   └── weatherController.js
-│   ├── services
-│   │   ├── openWeatherService.js
-│   │   └── weatherGraphService.js
-│   ├── routes
-│   │   └── weatherRoute.js
-│   ├── tests
-│   │   └── weather.test.js
-│   ├── app.js
-│   ├── .env
-│   ├── package.json
-├── frontend
-│   ├── src
-│   │   ├── components
-│   │   │   └── WeatherCard.jsx
-│   │   ├── services
-│   │   │   └── api.js
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│   ├── .env
-│   ├── package.json
-├── README.md
-```
+Ce projet consiste à créer une API unifiée qui récupère et normalise les données météorologiques à partir de deux sources :
 
----
+- **OpenWeatherMap** (API REST)
+- **WeatherGraph** (API GraphQL)
 
-## 🚀 Installation
-
-### 1. Cloner le dépôt
-
-```bash
-git clone <repository-url>
-cd weather-aggregator
-```
-
----
-
-## 🛠️ Backend
-
-### Installation des dépendances
-
-```bash
-cd backend
-npm install
-```
-
-### Lancer le serveur
-
-```bash
-npm start
-```
-
-Le backend sera accessible sur `http://localhost:3000`.
-
----
-
-## 🛠️ Frontend
-
-### Installation des dépendances
-
-```bash
-cd frontend
-npm install
-```
-
-### Lancer l'application React
-
-```bash
-npm run dev
-```
-
-Le frontend sera accessible sur `http://localhost:5173`.
-
----
-
-## ⚙️ Configuration
-
-Créer un fichier `.env` dans `backend/` :
-
-```bash
-# backend/.env
-OPENWEATHER_API_KEY=4066a575c0f2c09b98d809a9d2fe20d4
-WEATHERGRAPH_API_ENDPOINT=https://your-weathergraph-endpoint/graphql
-```
-
-Créer aussi un fichier `.env` dans `frontend/` si besoin d'API URL spécifique :
-
-```bash
-# frontend/.env
-VITE_API_URL=http://localhost:3000
-```
-
----
-
-## 📡 API Backend
-
-**Route principale :**
-
-- `GET /api/weather?city=Paris`
-
-**Réponse JSON :**
+L’API renvoie un schéma **normalisé** sous la forme suivante :
 
 ```json
 {
@@ -123,45 +26,87 @@ VITE_API_URL=http://localhost:3000
 
 ---
 
-## 🎨 Frontend
+## ✅ Ce qui est évalué
 
-- **WeatherCard.jsx** : Composant React affichant joliment la météo avec TailwindCSS.
-- **api.js** : Service pour appeler l'API backend.
+- **Intégration correcte** d'une API **REST** et d'une API **GraphQL**.
+- **Gestion robuste** des erreurs asynchrones et attendues.
+- **Stratégie de limitation du débit** (rate-limiting) pour protéger l'API.
+- **Utilisation sécurisée** de **variables d’environnement** via un fichier `.env`.
+- **Tests unitaires** et de validation, notamment pour les **cas limites** (ex : villes invalides).
+
+---
+
+## 🚀 Démarrage rapide
+
+### 1. Cloner le projet
+
+```bash
+git clone https://github.com/ton-utilisateur/nom-du-repo.git
+cd nom-du-repo
+```
+
+### 2. Installer les dépendances
+
+```bash
+npm install
+```
+
+### 3. Configurer les variables d'environnement
+
+Créer un fichier `.env` à la racine :
+
+```bash
+touch .env
+```
+
+Ajouter les clés API :
+
+```env
+OPENWEATHERMAP_API_KEY=ta_cle_api
+WEATHERGRAPH_API_ENDPOINT=url_de_weathergraph
+```
+
+### 4. Lancer le serveur
+
+```bash
+npm run start
+```
 
 ---
 
 ## 🧪 Tests
 
-Dans le dossier `backend/tests/`, exécuter :
+Pour exécuter les tests :
 
 ```bash
 npm run test
 ```
 
-> Teste les intégrations et les erreurs potentielles de l'API météo.
+- Tests des réponses pour des villes valides et invalides
+- Tests de la gestion des erreurs
+- Tests du mécanisme de limitation du débit
 
 ---
 
-## 📜 Scripts utiles
+## 🛠️ Stack technique
 
-Dans `backend/package.json` :
+- Node.js
+- Express
+- Axios (requêtes HTTP REST)
+- graphql-request (requêtes GraphQL)
+- dotenv (gestion des variables d’environnement)
+- jest (framework de tests)
 
-- `npm start` : Lance le serveur Express.
+---
 
-Dans `frontend/package.json` :
+## 🔥 Fonctionnalités futures possibles
 
-- `npm run dev` : Démarre le serveur Vite en mode développement.
+- Mise en cache des réponses
+- Support de nouvelles sources météorologiques
+- Authentification API (clé d’API par utilisateur)
 
 ---
 
-## 🛡️ Technologies utilisées
-
-- **Backend** : Node.js, Express, GraphQL Client
-- **Frontend** : React, Vite, TailwindCSS
-- **Tests** : Jest (pour le backend)
-- **Autres** : Dotenv pour la gestion des environnements
-
----
 
 ## ✨ Auteurs
 
