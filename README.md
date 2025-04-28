@@ -91,7 +91,7 @@ Créer un fichier `.env` dans `backend/` :
 
 ```bash
 # backend/.env
-OPENWEATHER_API_KEY=your_openweathermap_api_key
+OPENWEATHER_API_KEY=4066a575c0f2c09b98d809a9d2fe20d4
 WEATHERGRAPH_API_ENDPOINT=https://your-weathergraph-endpoint/graphql
 ```
 
